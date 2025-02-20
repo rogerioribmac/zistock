@@ -1,0 +1,39 @@
+<core:FragmentDefinition 
+	xmlns:core="sap.ui.core" 
+	xmlns="sap.m" 
+	xmlns:macros="sap.fe.macros"
+	xmlns:viz="sap.viz.ui5.controls" 
+	xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc" 
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data">
+	<VBox id="idStackedVbox" core:require="{ handler: 'com/ep/zistocks/ext/fragment/StackedBarChart'}">
+
+		<!-- <viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+			height='100%' width="100%" vizType='stacked_bar'>
+			<viz:dataset>
+				<viz.data:FlattenedDataset id="idFlatDimension" data="{_plant}">
+					<viz.data:dimensions>
+						<viz.data:DimensionDefinition id="idFlatDimensionDef" name="plant"
+							value="{plant}" />
+					</viz.data:dimensions>
+					<viz.data:measures>
+						<viz.data:MeasureDefinition id="idFlatMeasure" name="quantity"
+							value="{quantity}" />
+					</viz.data:measures>
+				</viz.data:FlattenedDataset>
+			</viz:dataset>
+
+			<viz:feeds>
+				<viz.feeds:FeedItem id="idFlatItemMeasure" uid="valueAxis" type="Measure"
+					values="quantity" />
+				<viz.feeds:FeedItem id="idFlatItemDimension" uid="categoryAxis" type="Dimension"
+					values="plant" />
+			</viz:feeds>
+			<viz:dependents>
+				<viz:Popover id="idPopOver"></viz:Popover>
+			</viz:dependents>
+		</viz:VizFrame> -->
+
+	</VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,214 @@
+{
+  "_version": "1.51.0",
+  "sap.app": {
+    "id": "com.ep.zistocks",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.16.3",
+      "toolsId": "4af5f0e9-f787-4b0a-9c08-089ad07b6019"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zz_sb_stock_report/srvd/sap/zz_sd_stock_report/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.108.10",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.ep.zistocks.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true,
+          "synchronizationMode": "None"
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "zz_pv_stock_maraList",
+          "target": "zz_pv_stock_maraList"
+        },
+        {
+          "pattern": "zz_pv_stock_mara({key}):?query:",
+          "name": "zz_pv_stock_maraObjectPage",
+          "target": "zz_pv_stock_maraObjectPage"
+        },
+        {
+          "pattern": "zz_pv_stock_mara({key})/_plant({key2}):?query:",
+          "name": "zz_pv_stock_zite_itecObjectPage",
+          "target": "zz_pv_stock_zite_itecObjectPage"
+        }
+      ],
+      "targets": {
+        "zz_pv_stock_maraList": {
+          "type": "Component",
+          "id": "zz_pv_stock_maraList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/zz_pv_stock_mara",
+              "variantManagement": "Page",
+              "navigation": {
+                "zz_pv_stock_mara": {
+                  "detail": {
+                    "route": "zz_pv_stock_maraObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "zz_pv_stock_maraObjectPage": {
+          "type": "Component",
+          "id": "zz_pv_stock_maraObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/zz_pv_stock_mara",
+              "navigation": {
+                "_plant": {
+                  "detail": {
+                    "route": "zz_pv_stock_zite_itecObjectPage"
+                  }
+                }
+              },
+              "content": {
+                "body": {
+                  "sections": {
+                    "StackedBarChart": {
+                      "template": "com.ep.zistocks.ext.fragment.StackedBarChart",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "OrderTab"
+                      },
+                      "title": "Chart"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "zz_pv_stock_zite_itecObjectPage": {
+          "type": "Component",
+          "id": "zz_pv_stock_zite_itecObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/zz_pv_stock_mara/_plant",
+              "content": {
+                "body": {
+                  "sections": {
+                    "DonutChart": {
+                      "template": "com.ep.zistocks.ext.fragment.DonutChart",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "OrderTab"
+                      },
+                      "title": "Chart",
+                      "onSectionLoaded": "com.ep.zistocks.webapp.exp.fragment.DonutChart.onSectionLoaded",
+                      "onInit": "com.ep.zistocks.webapp.exp.fragment.DonutChart.onInit"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ObjectPage.ObjectPageController": {
+            "controllerName": "com.ep.zistocks.ext.controller.AssetsExtension"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}
