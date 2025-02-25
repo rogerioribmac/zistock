@@ -41,21 +41,16 @@
                 </Annotation>
 
                 <Annotation Term="UI.DataPoint" Qualifier="chrtRadial">
-                    <Record Type="UI.DataPointType">
-                        <PropertyValue Property="Value" Path="quantityPerc" />
-                        <PropertyValue Property="CriticalityCalculation">
-                        <Record Type="UI.CriticalityCalculationType">
-                        <PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Maximize" />
-                        <PropertyValue Property="DeviationRangeLowValue" Decimal="15.00" />
-                        <PropertyValue Property="ToleranceRangeLowValue" Decimal="50.00" />
-                        </Record>
-                    </PropertyValue>
+                    <Record>
+                        <PropertyValue Property="Value" Path="quantity"/>
+                        <PropertyValue Property="TargetValue" Path="quantityTotal"/>
+                        <PropertyValue Property="Criticality" Path="quantityCrit"/>
                     </Record>
                 </Annotation>
-
+                
                 <Annotation Term="UI.Chart" Qualifier="chrtRadial">
-                    <Record Type="UI.ChartDefinitionType">
-                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut" />
+                    <Record>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
                         <PropertyValue Property="Measures">
                             <Collection>
                                 <PropertyPath>quantityPerc</PropertyPath>
@@ -63,10 +58,10 @@
                         </PropertyValue>
                         <PropertyValue Property="MeasureAttributes">
                             <Collection>
-                                <Record Type="UI.ChartMeasureAttributeType">
-                                    <PropertyValue Property="Measure" PropertyPath="quantityPerc" />
-                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1" />
-                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#chrtRadial" />
+                                <Record>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#chrtRadial"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="Measure" PropertyPath="quantityPerc"/>
                                 </Record>
                             </Collection>
                         </PropertyValue>
@@ -96,97 +91,10 @@
                     </Collection>
                 </Annotation>     
 
-                <Annotation Term="UI.DataPoint" Qualifier="quantityPerc">
-                    <Record>
-                        <PropertyValue Property="Value" Path="quantityPerc"/>
-                        <PropertyValue Property="TargetValue" Path="quantityPerc"/>
-                    </Record>
-                </Annotation>
-                <Annotation Term="UI.Chart" Qualifier="quantityPerc">
-                    <Record>
-                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
-                        <PropertyValue Property="Measures">
-                            <Collection>
-                                <PropertyPath>quantityPerc</PropertyPath>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="MeasureAttributes">
-                            <Collection>
-                                <Record>
-                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#quantityPerc"/>
-                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
-                                    <PropertyValue Property="Measure" PropertyPath="quantityPerc"/>
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation>
-                <Annotation Term="UI.LineItem">
-                    <Collection>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="plant"/>
-                        </Record>
-                        <Record Type="UI.DataFieldForAnnotation">
-                            <PropertyValue Property="Target" AnnotationPath="@UI.Chart#quantityPerc"/>
-                            <PropertyValue Property="Label" String="quantityPerc"/>
-                        </Record>
-                        <Record Type="UI.DataFieldForAnnotation">
-                            <PropertyValue Property="Label" String="Count %"/>
-                            <PropertyValue Property="Target" AnnotationPath="@UI.Chart#chrtRadial"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="quantity"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="requiredStock"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="openQuantity"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="deliveredQuantity"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="not10R"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="techRoomQuantity"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="unavailableStock"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="commitedStock"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="stockQuantity"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="safetyStock"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="totalAvailableStock"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="stockStatusTxt"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Criticality" Path="stockStatusTxtCrit"/>
-                            <PropertyValue Property="Value" Path="stockStatusTxt"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="hasITEC"/>
-                            <Annotation Term="UI.Hidden"/>
-                        </Record>
-                        <Record Type="UI.DataField">
-                            <PropertyValue Property="Value" Path="hasINLO"/>
-                            <Annotation Term="UI.Hidden"/>
-                        </Record>
-                    </Collection>
-                </Annotation>
             </Annotations>
 
             <Annotations Target="SAP__self.zz_pv_stock_zite_assetsType">
+
                 <Annotation Term="UI.PresentationVariant" Qualifier="table">
                     <Record Type="UI.PresentationVariantType">
                         <PropertyValue Property="Visualizations">
@@ -201,7 +109,9 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
+                
             </Annotations>
+
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

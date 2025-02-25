@@ -142,7 +142,8 @@
                 <Property Name="availableForReservation" Type="Edm.Int64" Nullable="false"/>
                 <Property Name="eventsSafetyStock" Type="Edm.Int16" Nullable="false"/>
                 <Property Name="imageURL" Type="Edm.String" Nullable="false" MaxLength="133"/>
-                <Property Name="quantityPerc" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2"/>
+                <Property Name="quantityTotal" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="quantityCrit" Type="Edm.Byte" Nullable="false"/>
                 <Property Name="CriticalityCode" Type="Edm.Byte" Nullable="false"/>
                 <Property Name="hasITEC" Type="Edm.String" Nullable="false" MaxLength="3"/>
                 <Property Name="hasINLO" Type="Edm.String" Nullable="false" MaxLength="3"/>
@@ -894,7 +895,8 @@
                                 <PropertyPath>reservedQtyEvent</PropertyPath>
                                 <PropertyPath>availableForReservation</PropertyPath>
                                 <PropertyPath>eventsSafetyStock</PropertyPath>
-                                <PropertyPath>quantityPerc</PropertyPath>
+                                <PropertyPath>quantityTotal</PropertyPath>
+                                <PropertyPath>quantityCrit</PropertyPath>
                                 <PropertyPath>stockStatusTxtCrit</PropertyPath>
                                 <PropertyPath>globalStockStatusTxt</PropertyPath>
                             </Collection>
@@ -924,7 +926,8 @@
                                 <PropertyPath>reservedQtyEvent</PropertyPath>
                                 <PropertyPath>availableForReservation</PropertyPath>
                                 <PropertyPath>eventsSafetyStock</PropertyPath>
-                                <PropertyPath>quantityPerc</PropertyPath>
+                                <PropertyPath>quantityTotal</PropertyPath>
+                                <PropertyPath>quantityCrit</PropertyPath>
                                 <PropertyPath>stockStatusTxtCrit</PropertyPath>
                                 <PropertyPath>globalStockStatusTxt</PropertyPath>
                             </Collection>
@@ -1750,6 +1753,9 @@
             </Annotations>
             <Annotations Target="SAP__self.zz_pv_stock_zite_itecType/eventsSafetyStock">
                 <Annotation Term="SAP__common.Label" String="Events Safety Stock"/>
+            </Annotations>
+            <Annotations Target="SAP__self.zz_pv_stock_zite_itecType/quantityTotal">
+                <Annotation Term="SAP__common.Label" String="Physical Count"/>
             </Annotations>
             <Annotations Target="SAP__self.zz_pv_stock_zite_itecType/globalStockStatusTxt">
                 <Annotation Term="SAP__common.Label" String="Stk status desc"/>

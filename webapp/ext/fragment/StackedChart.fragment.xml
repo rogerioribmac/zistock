@@ -1,0 +1,55 @@
+<core:FragmentDefinition 
+	xmlns:core="sap.ui.core" 
+	xmlns="sap.m" 
+	xmlns:viz="sap.viz.ui5.controls"
+	xmlns:layout="sap.ui.layout"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data"
+	xmlns:macros="sap.fe.macros">
+	<VBox id="uiArea" core:require="{ handler: 'com/ep/zistocks/ext/fragment/StackedChart'}">
+		<!-- <viz:VizFrame 
+			id="idVizFrame" 
+			uiConfig="{applicationSet:'fiori'}"
+			height='100%' 
+			width="100%" 
+			vizType='vertical_bullet'>
+			<viz:dataset>
+				<viz.data:FlattenedDataset data="{/milk}">
+					<viz.data:dimensions>
+						<viz.data:DimensionDefinition name="plant"
+							value="{plant}" />
+					</viz.data:dimensions>
+					<viz.data:measures>
+						<viz.data:MeasureDefinition name="quantity"
+							value="{quantity}" />
+						<viz.data:MeasureDefinition name="stockQuantity"
+							value="{stockQuantity}" />
+						<viz.data:MeasureDefinition name="Cost1"
+							value="{Cost1}" />
+						<viz.data:MeasureDefinition name="Cost2"
+							value="{Cost2}" />
+						<viz.data:MeasureDefinition name="totalAvailableStock"
+							value="{totalAvailableStock}" />
+						<viz.data:MeasureDefinition name="Target"
+							value="{Target}" />
+					</viz.data:measures>
+				</viz.data:FlattenedDataset>
+			</viz:dataset>
+
+			<viz:feeds>
+				<viz.feeds:FeedItem id="feedActualValues" uid="actualValues" type="Measure"
+					values="quantity" />
+				<viz.feeds:FeedItem id="feedTargetValues" uid="targetValues" type="Measure"
+					values="totalAvailableStock" />
+				<viz.feeds:FeedItem id="feedAdditionalValues" uid="additionalValues" type="Measure"
+					values="stockQuantity" />
+				<viz.feeds:FeedItem id="feedCategoryAxis" uid="categoryAxis" type="Dimension"
+					values="plant" />
+			</viz:feeds>
+			<viz:dependents>
+				<viz:Popover id="idPopOver"></viz:Popover>
+			</viz:dependents>
+		</viz:VizFrame> -->
+	</VBox>
+</core:FragmentDefinition>

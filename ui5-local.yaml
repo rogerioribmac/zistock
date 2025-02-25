@@ -40,7 +40,7 @@ server:
         mountPath: /
         services:
           - urlPath: /sap/opu/odata4/sap/zz_sb_stock_report/srvd/sap/zz_sd_stock_report/0001
-            metadataPath: ./webapp/localService/metadata.xml
-            mockdataPath: ./webapp/localService/data
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
         annotations: []
