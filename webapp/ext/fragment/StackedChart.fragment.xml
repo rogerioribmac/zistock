@@ -1,4 +1,5 @@
 <core:FragmentDefinition 
+	id="idStackedChartFragment"
 	xmlns:core="sap.ui.core" 
 	xmlns="sap.m" 
 	xmlns:viz="sap.viz.ui5.controls"
@@ -8,6 +9,10 @@
 	xmlns:viz.data="sap.viz.ui5.data"
 	xmlns:macros="sap.fe.macros">
 	<VBox id="uiArea" core:require="{ handler: 'com/ep/zistocks/ext/fragment/StackedChart'}">
+		<viz:VizFrame 
+                    id="idDonutChartPriority1" 
+                    height="500px" 
+                    width="100%"></viz:VizFrame>
 		<!-- <viz:VizFrame 
 			id="idVizFrame" 
 			uiConfig="{applicationSet:'fiori'}"
