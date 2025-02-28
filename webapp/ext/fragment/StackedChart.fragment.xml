@@ -9,10 +9,19 @@
 	xmlns:viz.data="sap.viz.ui5.data"
 	xmlns:macros="sap.fe.macros">
 	<VBox id="uiArea" core:require="{ handler: 'com/ep/zistocks/ext/fragment/StackedChart'}">
-		<viz:VizFrame 
-                    id="idDonutChartPriority1" 
-                    height="500px" 
-                    width="100%"></viz:VizFrame>
+		<layout:FixFlex id='chartFixFlex' minFlexSize="250">
+			<layout:flexContent>
+				<viz:VizFrame 
+							id="idDonutChartPriority1" 
+							vizType="info/dual_stacked_combination"
+							height="500px" 
+							width="100%">
+					<viz:dependents>
+                    	<viz:Popover id="idPopOver"></viz:Popover>
+                	</viz:dependents>							
+				</viz:VizFrame>
+			</layout:flexContent>
+		</layout:FixFlex>
 		<!-- <viz:VizFrame 
 			id="idVizFrame" 
 			uiConfig="{applicationSet:'fiori'}"
