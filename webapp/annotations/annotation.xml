@@ -23,16 +23,6 @@
                     </Record>
                 </Annotation>
 
-                <!-- <Annotation Term="UI.Facets">
-                    <Collection>
-                        <Record Type="UI.ReferenceFacet">
-                            <PropertyValue Property="Label" String="test"/>
-                            <PropertyValue Property="ID" String="testTab"/>
-                            <PropertyValue Property="Target" AnnotationPath="_plant/@UI.PresentationVariant#chrtBullet"/>
-                        </Record>
-                    </Collection>
-                </Annotation> -->
-
             </Annotations>
 
             <Annotations Target="SAP__self.zz_pv_stock_zite_itecType">
@@ -77,37 +67,6 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
-
-                <!-- <Annotation Term="UI.DataPoint" Qualifier="chrtBullet">
-                    <Record Type="UI.DataPointType">
-                        <PropertyValue Property="Value" Path="quantity"/>
-                        <PropertyValue Property="CriticalityCalculation">
-                            <Record Type="UI.CriticalityCalculationType">
-                                <PropertyValue Property="ImprovementDirection" EnumMember="UI.ImprovementDirectionType/Maximize"/>
-                                <PropertyValue Property="DeviationRangeLowValue" Path="quantity"/>
-                                <PropertyValue Property="ToleranceRangeLowValue" Path="quantity"/>
-                            </Record>
-                        </PropertyValue>
-                    </Record>
-                </Annotation> -->
-
-                <!-- <Annotation Term="UI.Chart" Qualifier="chrtBullet">
-                    <Record Type="UI.ChartDefinitionType">
-                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Bullet" />
-                        <PropertyValue Property="Measures">
-                            <Collection>
-                                <PropertyPath>quantity</PropertyPath>
-                            </Collection>
-                        </PropertyValue>
-                        <PropertyValue Property="MeasureAttributes">
-                            <Collection>
-                                <Record Type="UI.ChartMeasureAttributeType">
-                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#chrtBullet" />
-                                </Record>
-                            </Collection>
-                        </PropertyValue>
-                    </Record>
-                </Annotation> -->
 
                 <Annotation Term="UI.Facets">
                     <Collection>

@@ -11,59 +11,100 @@
 	<VBox id="uiArea" core:require="{ handler: 'com/ep/zistocks/ext/fragment/StackedChart'}">
 		<layout:FixFlex id='chartFixFlex' minFlexSize="250">
 			<layout:flexContent>
-				<viz:VizFrame 
-							id="idDonutChartPriority1" 
-							vizType="info/dual_stacked_combination"
-							height="500px" 
-							width="100%">
+				<viz:VizFrame
+					id="idMonthVizFrame"
+					renderComplete="handler.onVizFrameRenderComplete"
+					height="300px"
+					uiConfig="{
+						applicationSet: 'fiori'
+					}"
+					width="100%"
+					class="sapUiSmallMargin"
+					vizType="bullet"
+					vizProperties="{
+						title: { visible: false },
+						plotArea: {
+							dataLabel: {
+								visible: true,
+								showTotal: true
+							}
+						},
+						categoryAxis: {
+							title: { visible: false },
+							label: { visible: true }
+						},
+						valueAxis: {
+							title: { visible: false },
+							label: { visible: true }
+						}
+					}">
+					<viz:dataset>
+						<viz.data:FlattenedDataset
+							id="idFlattenedDataset"
+							data="{ path: 'v2>/zz_dd_stock_zite_itec'
+									
+								}">
+							<viz.data:dimensions>
+								<viz.data:DimensionDefinition
+									id="idPlantDefinition"
+									name="Plant"
+									value="{v2>plantTxt}"
+								/>
+							</viz.data:dimensions>
+							<viz.data:measures>
+								<viz.data:MeasureDefinition
+									id="idCommitedStockDefinition"
+									name="Unavailable/Commited Stock"
+									value="{v2>UnavailCommitStock}"
+								/>
+							</viz.data:measures>
+							<viz.data:measures>
+								<viz.data:MeasureDefinition
+									id="idAvailableStkDefinition"
+									name="Available Stock"
+									value="{v2>stockQuantity}"
+								/>
+							</viz.data:measures>
+							<viz.data:measures>
+								<viz.data:MeasureDefinition
+									id="idSafetyDefinition"
+									name="Safety Stock"
+									value="{v2>safetyStock}"
+								/>
+							</viz.data:measures>
+						</viz.data:FlattenedDataset>
+					</viz:dataset>
+					<viz:feeds>
+						<viz.feeds:FeedItem
+							id="idPlantFeed"
+							uid="categoryAxis"
+							type="Dimension"
+							values="Plant"
+						/>
+						<viz.feeds:FeedItem
+							id="idCommitedStockFeed"
+							uid="additionalValues"
+							type="Measure"
+							values="Unavailable/Commited Stock"
+						/>
+						<viz.feeds:FeedItem
+							id="idAvailableStkFeed"
+							uid="primaryValues"
+							type="Measure"
+							values="Available Stock"
+						/>
+						<viz.feeds:FeedItem
+							id="idSafetyFeed"
+							uid="targetValues"
+							type="Measure"
+							values="Safety Stock"
+						/>
+					</viz:feeds>
 					<viz:dependents>
-                    	<viz:Popover id="idPopOver"></viz:Popover>
-                	</viz:dependents>							
+						<viz:Popover id="idMonthPopover" />
+					</viz:dependents>
 				</viz:VizFrame>
 			</layout:flexContent>
 		</layout:FixFlex>
-		<!-- <viz:VizFrame 
-			id="idVizFrame" 
-			uiConfig="{applicationSet:'fiori'}"
-			height='100%' 
-			width="100%" 
-			vizType='vertical_bullet'>
-			<viz:dataset>
-				<viz.data:FlattenedDataset data="{/milk}">
-					<viz.data:dimensions>
-						<viz.data:DimensionDefinition name="plant"
-							value="{plant}" />
-					</viz.data:dimensions>
-					<viz.data:measures>
-						<viz.data:MeasureDefinition name="quantity"
-							value="{quantity}" />
-						<viz.data:MeasureDefinition name="stockQuantity"
-							value="{stockQuantity}" />
-						<viz.data:MeasureDefinition name="Cost1"
-							value="{Cost1}" />
-						<viz.data:MeasureDefinition name="Cost2"
-							value="{Cost2}" />
-						<viz.data:MeasureDefinition name="totalAvailableStock"
-							value="{totalAvailableStock}" />
-						<viz.data:MeasureDefinition name="Target"
-							value="{Target}" />
-					</viz.data:measures>
-				</viz.data:FlattenedDataset>
-			</viz:dataset>
-
-			<viz:feeds>
-				<viz.feeds:FeedItem id="feedActualValues" uid="actualValues" type="Measure"
-					values="quantity" />
-				<viz.feeds:FeedItem id="feedTargetValues" uid="targetValues" type="Measure"
-					values="totalAvailableStock" />
-				<viz.feeds:FeedItem id="feedAdditionalValues" uid="additionalValues" type="Measure"
-					values="stockQuantity" />
-				<viz.feeds:FeedItem id="feedCategoryAxis" uid="categoryAxis" type="Dimension"
-					values="plant" />
-			</viz:feeds>
-			<viz:dependents>
-				<viz:Popover id="idPopOver"></viz:Popover>
-			</viz:dependents>
-		</viz:VizFrame> -->
 	</VBox>
 </core:FragmentDefinition>

@@ -28,7 +28,7 @@
         }
       },
       "v2Service": {
-        "uri": "/sap/opu/odata/sap/ZZ_DD_STOCK_ZITE_ITEC_CDS/zz_dd_stock_zite_itec?$filter=materialNo eq '000000000001000025'",
+        "uri": "/sap/opu/odata/sap/ZZ_DD_STOCK_ZITE_ITEC_CDS",
         "type": "OData",
         "settings": {
           "annotations": [],
