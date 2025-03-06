@@ -6,8 +6,17 @@ sap.ui.define([
 
     return {
         onVizFrameRenderComplete: function(oEvent){
-            
-            debugger;
+            // debugger;
+
+            // let fOnDataLoad = function (oEvent) {
+
+            //     var oModel = oEvent.getSource().getModel();
+            //     var oData = oModel.oData;
+            //     debugger;
+    
+            // };
+            // oEvent.getSource().getAggregation("dataset").getBinding("data").attachChange(fOnDataLoad, this);
+
             let oVizFrame = this.byId("com.ep.zistocks::zz_pv_stock_maraObjectPage--fe::CustomSubSection::StackedChart--idMonthVizFrame");
             if (oVizFrame){
                 var chartData = oEvent.getSource().getAggregation("dataset").getBinding("data").getModel().oData;
@@ -17,7 +26,7 @@ sap.ui.define([
                 window.localStorage.setItem("chartData", JSON.stringify(convChartData));
                 var oPopOver = new sap.viz.ui5.controls.Popover({
                     'customDataControl' : function(data){
-                        debugger;
+                        
                         var chartData = JSON.parse(window.localStorage.getItem("chartData"));
 
                         var values = data.data.val, divStr = "", idx = values[1].value;
@@ -42,6 +51,14 @@ sap.ui.define([
                     groupingSeparator: "."
                 }).format);
                 }
+
+        },
+
+        onDataLoaded: function (oEvent) {
+
+            var oModel = oEvent.getSource().getModel();
+            var oData = oModel.oData;
+            debugger;
 
         }
     };

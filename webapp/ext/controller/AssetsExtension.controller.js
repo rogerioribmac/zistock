@@ -14,6 +14,7 @@ sap.ui.define([
              * @memberOf com.ep.zistocks.ext.controller.AssetsExtension
              */
 			onInit: function (oEvent) {
+
 			},
 
 			onPageReady: function(oEvent){
@@ -37,6 +38,13 @@ sap.ui.define([
 							oVizFrame.getDataset().getBinding("data").filter();
 							oVizFrame.getDataset().getBinding("data").filter(oFilterMaterial);
 							oVizFrame.getDataset().updateBindings(true);
+
+							let fOnDataLoad = function (oEvent) {
+								var oModel = oEvent.getSource().getModel();
+								var oData = oModel.oData;
+							};
+							oVizFrame.getDataset().getBinding("data").attachChange(fOnDataLoad, this);
+							
 						}
 					}
 				}
