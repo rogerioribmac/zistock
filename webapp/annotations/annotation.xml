@@ -1,0 +1,132 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata4/sap/zz_sb_stock_report/srvd/sap/zz_sd_stock_report/0001/$metadata">
+        <edmx:Include Namespace="com.sap.gateway.srvd.zz_sd_stock_report.v0001" Alias="SAP__self"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+
+            <Annotations Target="SAP__self.zz_pv_stock_zite_materialsType">
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="ImageUrl" Path="imageURL"  />
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="materialNo"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeName" String="Stock per Plant"/>
+                        <PropertyValue Property="TypeNamePlural" String="Materials"/>
+                    </Record>
+                </Annotation>
+
+            </Annotations>
+
+            <Annotations Target="SAP__self.zz_pv_stock_zite_plantsType">
+
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="ImageUrl" Path="imageURL"  />
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="plant"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="TypeName" String="Stock Inventory"/>
+                        <PropertyValue Property="TypeNamePlural" String="Stock Inventories"/>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.DataPoint" Qualifier="chrtRadial">
+                    <Record>
+                        <PropertyValue Property="Value" Path="quantity"/>
+                        <PropertyValue Property="TargetValue" Path="quantityTotal"/>
+                        <PropertyValue Property="Criticality" Path="quantityCrit"/>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Chart" Qualifier="chrtRadial">
+                    <Record>
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>quantityPerc</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="DataPoint" AnnotationPath="@UI.DataPoint#chrtRadial"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                    <PropertyValue Property="Measure" PropertyPath="quantityPerc"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <Record Type="UI.CollectionFacet">
+                            <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="ID" String="OrderTab"/>
+                            <PropertyValue Property="Facets">
+                                <Collection>
+                                    <Record Type="UI.ReferenceFacet">
+                                        <PropertyValue Property="Label" String="General Info"/>
+                                        <PropertyValue Property="ID" String="Order_General"/>
+                                        <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#General"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Assets List"/>
+                            <PropertyValue Property="ID" String="ItemsTab"/>
+                            <PropertyValue Property="Target" AnnotationPath="_assets/@UI.PresentationVariant#table"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <Annotation Term="UI.PresentationVariant" Qualifier="chrtBullet">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart#chrtBullet</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="SAP__self.zz_pv_stock_zite_assetsType">
+
+                <Annotation Term="UI.PresentationVariant" Qualifier="table">
+                    <Record Type="UI.PresentationVariantType">
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="GroupBy">
+                            <Collection>
+                                <PropertyPath>StorageLocation</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+            </Annotations>
+
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

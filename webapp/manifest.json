@@ -1,0 +1,225 @@
+{
+  "_version": "1.48.0",
+  "sap.app": {
+    "id": "com.ep.zistocks",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.16.5",
+      "toolsId": "ca7a00bf-3fe9-4db5-a1b6-122acc02b04c"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zz_sb_stock_report/srvd/sap/zz_sd_stock_report/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
+      "v2Service": {
+        "uri": "/sap/opu/odata/sap/ZZ_DD_STOCK_ZITE_PLANTS_CDS",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "2.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.108.26",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.ep.zistocks.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "synchronizationMode": "None",
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "v2": {
+        "dataSource": "v2Service",
+        "preload": true,
+        "settings": {}
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "zz_pv_stock_zite_materialsList",
+          "target": "zz_pv_stock_zite_materialsList"
+        },
+        {
+          "pattern": "zz_pv_stock_zite_materials({key}):?query:",
+          "name": "zz_pv_stock_zite_materialsObjectPage",
+          "target": "zz_pv_stock_zite_materialsObjectPage"
+        },
+        {
+          "pattern": "zz_pv_stock_zite_materials({key})/_plant({key2}):?query:",
+          "name": "zz_pv_stock_zite_plantsObjectPage",
+          "target": "zz_pv_stock_zite_plantsObjectPage"
+        }
+      ],
+      "targets": {
+        "zz_pv_stock_zite_materialsList": {
+          "type": "Component",
+          "id": "zz_pv_stock_zite_materialsList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/zz_pv_stock_zite_materials",
+              "variantManagement": "Page",
+              "navigation": {
+                "zz_pv_stock_zite_materials": {
+                  "detail": {
+                    "route": "zz_pv_stock_zite_materialsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "zz_pv_stock_zite_materialsObjectPage": {
+          "type": "Component",
+          "id": "zz_pv_stock_zite_materialsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/zz_pv_stock_zite_materials",
+              "navigation": {
+                "_plant": {
+                  "detail": {
+                    "route": "zz_pv_stock_zite_plantsObjectPage"
+                  }
+                }
+              },
+              "content": {
+                "body": {
+                  "sections": {
+                    "BulletChart": {
+                      "template": "com.ep.zistocks.ext.fragment.BulletChart",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "OrderTab"
+                      },
+                      "title": "Chart"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "zz_pv_stock_zite_plantsObjectPage": {
+          "type": "Component",
+          "id": "zz_pv_stock_zite_plantsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/zz_pv_stock_zite_materials/_plant",
+              "content": {
+                "body": {
+                  "sections": {
+                    "DonutChart": {
+                      "template": "com.ep.zistocks.ext.fragment.DonutChart",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "OrderTab"
+                      },
+                      "title": "Chart"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ObjectPage.ObjectPageController": {
+            "controllerName": "com.ep.zistocks.ext.controller.ObjControllerExtension"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

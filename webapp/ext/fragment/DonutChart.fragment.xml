@@ -1,0 +1,25 @@
+<core:FragmentDefinition
+		xmlns:core="sap.ui.core"
+		xmlns="sap.m"
+		xmlns:viz="sap.viz.ui5.controls"
+		xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+		xmlns:viz.data="sap.viz.ui5.data"
+		xmlns:microchart="sap.suite.ui.microchart"
+		xmlns:macros="sap.fe.macros">
+	<HBox>
+		<microchart:InteractiveDonutChart
+			id="idDonutChart"
+			selectionChanged="handler.onSelectionChanged"
+			core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
+			selectionEnabled="true"
+			displayedSegments="8"
+			segments="{_stor_loc}">
+			<microchart:segments>
+				<microchart:InteractiveDonutChartSegment
+					value="{Quantity}"
+					label="{StorageLocationTxt}"
+					displayedValue="{StorageLocation}" />
+			</microchart:segments>
+		</microchart:InteractiveDonutChart>
+	</HBox>
+</core:FragmentDefinition>
