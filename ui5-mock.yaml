@@ -39,4 +39,10 @@ server:
             metadataPath: ./webapp/localService/mainService/metadata.xml
             mockdataPath: ./webapp/localService/mainService/data
             generateMockData: true
-        annotations: []
+          - urlPath: /sap/opu/odata/sap/ZZ_DD_STOCK_ZITE_PLANTS_CDS
+            metadataPath: ./webapp/localService/v2Service/metadata.xml
+            mockdataPath: ./webapp/localService/v2Service/data
+            generateMockData: true
+        annotations:
+          - localPath: ./webapp/localService/v2Service/ZZ_DD_STOCK_ZITE_PLANTS_CDS_VAN.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZZ_DD_STOCK_ZITE_PLANTS_CDS_VAN',Version='0001')/$value/

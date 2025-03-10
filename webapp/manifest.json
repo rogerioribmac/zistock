@@ -35,11 +35,21 @@
         }
       },
       "v2Service": {
-        "uri": "/sap/opu/odata/sap/ZZ_DD_STOCK_ZITE_PLANTS_CDS",
+        "uri": "/sap/opu/odata/sap/ZZ_DD_STOCK_ZITE_PLANTS_CDS/",
         "type": "OData",
         "settings": {
-          "annotations": [],
+          "annotations": [
+            "ZZ_DD_STOCK_ZITE_PLANTS_CDS_VAN"
+          ],
+          "localUri": "localService/v2Service/metadata.xml",
           "odataVersion": "2.0"
+        }
+      },
+      "ZZ_DD_STOCK_ZITE_PLANTS_CDS_VAN": {
+        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZZ_DD_STOCK_ZITE_PLANTS_CDS_VAN',Version='0001')/$value/",
+        "type": "ODataAnnotation",
+        "settings": {
+          "localUri": "localService/v2Service/ZZ_DD_STOCK_ZITE_PLANTS_CDS_VAN.xml"
         }
       }
     }
@@ -99,6 +109,11 @@
       "@i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "uri": "i18n/i18n.properties"
+      },
+      "v2Service": {
+        "dataSource": "v2Service",
+        "preload": true,
+        "settings": {}
       }
     },
     "resources": {
