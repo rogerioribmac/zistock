@@ -5,7 +5,7 @@ sap.ui.define([
 
     return {
         onVizFrameRenderComplete: function(oEvent){
-debugger;
+
             let oVizFrame = this.byId("com.ep.zistocks::zz_pv_stock_zite_materialsObjectPage--fe::CustomSubSection::BulletChart--idMonthVizFrame");
             if (oVizFrame){
                 var chartData = oEvent.getSource().getDataset().getBinding("data").getAllCurrentContexts();

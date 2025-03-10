@@ -14,7 +14,7 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 			},
 
 			onPageReady: function(oEvent){
-debugger;
+
 				var oTable = this.base.byId("com.ep.zistocks::zz_pv_stock_zite_plantsObjectPage--fe::table::_assets::LineItem");
             	if (oTable){
 					if (oTable.getFilterConditions().StorageLocation){

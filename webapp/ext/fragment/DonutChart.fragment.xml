@@ -6,20 +6,22 @@
 		xmlns:viz.data="sap.viz.ui5.data"
 		xmlns:microchart="sap.suite.ui.microchart"
 		xmlns:macros="sap.fe.macros">
-	<HBox>
-		<microchart:InteractiveDonutChart
-			id="idDonutChart"
-			selectionChanged="handler.onSelectionChanged"
-			core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
-			selectionEnabled="true"
-			displayedSegments="8"
-			segments="{_stor_loc}">
-			<microchart:segments>
-				<microchart:InteractiveDonutChartSegment
-					value="{Quantity}"
-					label="{StorageLocationTxt}"
-					displayedValue="{StorageLocation}" />
-			</microchart:segments>
-		</microchart:InteractiveDonutChart>
-	</HBox>
+	<FlexBox width="100%" height="18rem" alignItems="Center" justifyContent="SpaceBetween">
+		<items>
+			<microchart:InteractiveDonutChart
+				id="idDonutChart"
+				selectionChanged="handler.onSelectionChanged"
+				core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
+				selectionEnabled="true"
+				displayedSegments="8"
+				segments="{_stor_loc}" >
+				<microchart:segments>
+					<microchart:InteractiveDonutChartSegment
+						value="{Quantity}"
+						label="{= ${StorageLocation} + ' - ' + ${StorageLocationTxt} }"
+						displayedValue="{Quantity}" />
+				</microchart:segments>
+			</microchart:InteractiveDonutChart>
+		</items>
+	</FlexBox>
 </core:FragmentDefinition>
