@@ -1,6 +1,7 @@
 sap.ui.define([
-    "sap/m/MessageToast"
-], function(MessageToast) {
+    "sap/m/MessageToast",
+    "sap/ui/core/HTML"
+], function(MessageToast,HTMLControl) {
     'use strict';
 
     return {
@@ -21,9 +22,6 @@ sap.ui.define([
                         divStr = divStr + "<div style = 'margin: 5px 30px 15px 30px'>" + "Commited<span style = 'float: right'>" + chartData[data.target.dataset.id].getProperty("commitedStock") + "</span></div>";
                         return new HTMLControl({content:divStr});
 
-                        return new HTMLControl({
-                            content: divStr
-                        });
                     }
                 });
                 oPopOver.connect(oVizFrame.getVizUid());

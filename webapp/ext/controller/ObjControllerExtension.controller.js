@@ -29,10 +29,19 @@ sap.ui.define(['sap/ui/core/mvc/ControllerExtension'], function (ControllerExten
 					let oHeaderContainer = this.getView().byId("com.ep.zistocks::zz_pv_stock_zite_materialsObjectPage--fe::HeaderContentContainer");
 					if (oHeaderContainer){
 						let sMaterial = oHeaderContainer.getBindingContext().getProperty("materialNo");
+						let sDG = oHeaderContainer.getBindingContext().getProperty("DG");
 						if (sMaterial){
+							var oCombinedFilter = new sap.ui.model.Filter({
+								filters: 
+									[
+										new sap.ui.model.Filter("materialNo", sap.ui.model.FilterOperator.EQ, sMaterial), 
+										new sap.ui.model.Filter("DG", sap.ui.model.FilterOperator.EQ, sDG)
+									],
+								and: true
+							});
 							var oFilterMaterial =new sap.ui.model.Filter("materialNo",sap.ui.model.FilterOperator.EQ,sMaterial);
 							oVizFrame.getDataset().getBinding("data").filter();
-							oVizFrame.getDataset().getBinding("data").filter(oFilterMaterial);
+							oVizFrame.getDataset().getBinding("data").filter(oCombinedFilter);
 							oVizFrame.getDataset().updateBindings(true);
 							
 						}

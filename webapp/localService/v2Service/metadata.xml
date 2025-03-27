@@ -156,12 +156,12 @@
             <EntityType Name="zz_dd_stock_zite_plantsType" sap:label="CDS iStocks - Assets ITEC" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="materialNo"/>
-                    <PropertyRef Name="plant"/>
                     <PropertyRef Name="DG"/>
+                    <PropertyRef Name="plant"/>
                 </Key>
                 <Property Name="materialNo" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Material Number"/>
-                <Property Name="plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="plantTxt" sap:label="Plant"/>
                 <Property Name="DG" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="DG" sap:quickinfo="DG Responsible"/>
+                <Property Name="plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="plantTxt" sap:label="Plant"/>
                 <Property Name="plantTxt" Type="Edm.String" MaxLength="30" sap:label="Name 1" sap:quickinfo="Name"/>
                 <Property Name="safetyStock" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="quantityUnit" sap:label="Safety Stock"/>
                 <Property Name="fixedLotSize" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="quantityUnit" sap:label="Fixed lot size"/>
@@ -234,13 +234,13 @@
                 <End Type="ZZ_DD_STOCK_ZITE_PLANTS_CDS.zz_dd_stock_zite_stor_locType" Multiplicity="*" Role="ToRole_assoc_C8D1024189F56034350D81E0A149497B"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_assoc_C8D1024189F56034350D81E0A149497B">
-                        <PropertyRef Name="DG"/>
                         <PropertyRef Name="plant"/>
+                        <PropertyRef Name="DG"/>
                         <PropertyRef Name="materialNo"/>
                     </Principal>
                     <Dependent Role="ToRole_assoc_C8D1024189F56034350D81E0A149497B">
-                        <PropertyRef Name="DG"/>
                         <PropertyRef Name="Plant"/>
+                        <PropertyRef Name="DG"/>
                         <PropertyRef Name="MaterialNo"/>
                     </Dependent>
                 </ReferentialConstraint>
@@ -252,13 +252,13 @@
                 <End Type="ZZ_DD_STOCK_ZITE_PLANTS_CDS.zz_dd_stock_zite_assetsType" Multiplicity="*" Role="ToRole_assoc_93FC04D847EB34E51E42611BA32AD313"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_assoc_93FC04D847EB34E51E42611BA32AD313">
-                        <PropertyRef Name="DG"/>
                         <PropertyRef Name="plant"/>
+                        <PropertyRef Name="DG"/>
                         <PropertyRef Name="materialNo"/>
                     </Principal>
                     <Dependent Role="ToRole_assoc_93FC04D847EB34E51E42611BA32AD313">
-                        <PropertyRef Name="DG"/>
                         <PropertyRef Name="Plant"/>
+                        <PropertyRef Name="DG"/>
                         <PropertyRef Name="MaterialNo"/>
                     </Dependent>
                 </ReferentialConstraint>

@@ -116,8 +116,8 @@
                 <Property Name="Quantity" Type="Edm.Byte" Nullable="false"/>
                 <NavigationProperty Name="_zite" Type="com.sap.gateway.srvd.zz_sd_stock_report.v0001.zz_pv_stock_zite_plantsType" Nullable="false" Partner="_stor_loc">
                     <ReferentialConstraint Property="MaterialNo" ReferencedProperty="materialNo"/>
-                    <ReferentialConstraint Property="Plant" ReferencedProperty="plant"/>
                     <ReferentialConstraint Property="DG" ReferencedProperty="DG"/>
+                    <ReferentialConstraint Property="Plant" ReferencedProperty="plant"/>
                 </NavigationProperty>
             </EntityType>
             <EntityType Name="zz_pv_stock_zite_assets_dgType">
@@ -135,12 +135,12 @@
             <EntityType Name="zz_pv_stock_zite_plantsType">
                 <Key>
                     <PropertyRef Name="materialNo"/>
-                    <PropertyRef Name="plant"/>
                     <PropertyRef Name="DG"/>
+                    <PropertyRef Name="plant"/>
                 </Key>
                 <Property Name="materialNo" Type="Edm.String" Nullable="false" MaxLength="18"/>
-                <Property Name="plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
                 <Property Name="DG" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
                 <Property Name="plantTxt" Type="Edm.String" Nullable="false" MaxLength="30"/>
                 <Property Name="safetyStock" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
                 <Property Name="fixedLotSize" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
@@ -274,8 +274,8 @@
                 <Property Name="QuantityStock" Type="Edm.Byte" Nullable="false"/>
                 <NavigationProperty Name="_zite" Type="com.sap.gateway.srvd.zz_sd_stock_report.v0001.zz_pv_stock_zite_plantsType" Nullable="false" Partner="_assets">
                     <ReferentialConstraint Property="MaterialNo" ReferencedProperty="materialNo"/>
-                    <ReferentialConstraint Property="Plant" ReferencedProperty="plant"/>
                     <ReferentialConstraint Property="DG" ReferencedProperty="DG"/>
+                    <ReferentialConstraint Property="Plant" ReferencedProperty="plant"/>
                 </NavigationProperty>
             </EntityType>
             <EntityType Name="zz_dd_stock_zite_fltr_stor_locType">
@@ -1032,6 +1032,12 @@
                 <Annotation Term="SAP__common.Label" String="Material"/>
                 <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
             </Annotations>
+            <Annotations Target="SAP__self.zz_pv_stock_zite_plantsType/DG">
+                <Annotation Term="SAP__common.Label" String="DG"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="DG Responsible"/>
+                <Annotation Term="SAP__common.QuickInfo" String="DG Responsible"/>
+            </Annotations>
             <Annotations Target="SAP__self.zz_pv_stock_zite_plantsType/plant">
                 <Annotation Term="SAP__common.Text" Path="plantTxt">
                     <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
@@ -1039,12 +1045,6 @@
                 <Annotation Term="SAP__common.IsUpperCase"/>
                 <Annotation Term="SAP__common.Label" String="Plant"/>
                 <Annotation Term="SAP__common.Heading" String="Plnt"/>
-            </Annotations>
-            <Annotations Target="SAP__self.zz_pv_stock_zite_plantsType/DG">
-                <Annotation Term="SAP__common.Label" String="DG"/>
-                <Annotation Term="SAP__common.IsUpperCase"/>
-                <Annotation Term="SAP__common.Heading" String="DG Responsible"/>
-                <Annotation Term="SAP__common.QuickInfo" String="DG Responsible"/>
             </Annotations>
             <Annotations Target="SAP__self.zz_pv_stock_zite_plantsType/safetyStock">
                 <Annotation Term="SAP__measures.Unit" Path="quantityUnit"/>

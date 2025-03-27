@@ -24,7 +24,11 @@ sap.ui.define([
                 oTable.rebind();
             }
 
-		}
+		},
+
+        onSegmentedChange: function(oEvent){
+            debugger;
+        }
         
     };
 });

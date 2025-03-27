@@ -6,6 +6,16 @@
 		xmlns:viz.data="sap.viz.ui5.data"
 		xmlns:microchart="sap.suite.ui.microchart"
 		xmlns:macros="sap.fe.macros">
+	<!-- <VBox width="100%">
+    <SegmentedButton 
+		selectedKey="physical" 
+		core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
+		selectionChange="handler.onSegmentedChange">
+		<items>
+			<SegmentedButtonItem text="Physical Count" key="physical" />
+			<SegmentedButtonItem text="Stock Relevant Quantity" />
+		</items>
+	</SegmentedButton>			 -->
 	<FlexBox width="100%" height="18rem" alignItems="Center" justifyContent="SpaceBetween">
 		<items>
 			<microchart:InteractiveDonutChart
@@ -13,10 +23,11 @@
 				selectionChanged="handler.onSelectionChanged"
 				core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
 				selectionEnabled="true"
-				displayedSegments="8"
+				displayedSegments="10"
 				segments="{_stor_loc}" >
 				<microchart:segments>
 					<microchart:InteractiveDonutChartSegment
+						id="idDonutChartSegment"
 						value="{Quantity}"
 						label="{= ${StorageLocation} + ' - ' + ${StorageLocationTxt} }"
 						displayedValue="{Quantity}" />
@@ -24,4 +35,5 @@
 			</microchart:InteractiveDonutChart>
 		</items>
 	</FlexBox>
+	<!-- </VBox> -->
 </core:FragmentDefinition>
