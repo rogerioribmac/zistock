@@ -1,39 +1,37 @@
 <core:FragmentDefinition
-		xmlns:core="sap.ui.core"
-		xmlns="sap.m"
-		xmlns:viz="sap.viz.ui5.controls"
-		xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
-		xmlns:viz.data="sap.viz.ui5.data"
-		xmlns:microchart="sap.suite.ui.microchart"
-		xmlns:macros="sap.fe.macros">
-	<!-- <VBox width="100%">
-    <SegmentedButton 
-		selectedKey="physical" 
-		core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
-		selectionChange="handler.onSegmentedChange">
-		<items>
-			<SegmentedButtonItem text="Physical Count" key="physical" />
-			<SegmentedButtonItem text="Stock Relevant Quantity" />
-		</items>
-	</SegmentedButton>			 -->
-	<FlexBox width="100%" height="18rem" alignItems="Center" justifyContent="SpaceBetween">
-		<items>
-			<microchart:InteractiveDonutChart
-				id="idDonutChart"
-				selectionChanged="handler.onSelectionChanged"
-				core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
-				selectionEnabled="true"
-				displayedSegments="10"
-				segments="{_stor_loc}" >
-				<microchart:segments>
-					<microchart:InteractiveDonutChartSegment
-						id="idDonutChartSegment"
-						value="{Quantity}"
-						label="{= ${StorageLocation} + ' - ' + ${StorageLocationTxt} }"
-						displayedValue="{Quantity}" />
-				</microchart:segments>
-			</microchart:InteractiveDonutChart>
-		</items>
-	</FlexBox>
-	<!-- </VBox> -->
+        xmlns:core="sap.ui.core"
+        xmlns="sap.m"
+        xmlns:viz="sap.viz.ui5.controls"
+        xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+        xmlns:viz.data="sap.viz.ui5.data"
+        xmlns:microchart="sap.suite.ui.microchart"
+        xmlns:macros="sap.fe.macros">
+    <FlexBox width="100%" height="24rem" direction="Column" alignItems="Start">
+        <items>
+    
+            <!-- <Text text="* There may be more segments than those shown in the chart"
+            id="idWarningDonut"
+            visible="true"
+            textAlign="Left"
+            class="sapUiSmallMargin"
+            width="100%" /> -->
+
+            <microchart:InteractiveDonutChart
+                id="idDonutChart"
+                selectionChanged="handler.onSelectionChanged"
+                core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
+                selectionEnabled="true"
+                displayedSegments="10"
+                segments="{_stor_loc}" >
+                <microchart:segments>
+                    <microchart:InteractiveDonutChartSegment
+                        value="{Quantity}"
+                        label="{= ${StorageLocation} + ' - ' + ${StorageLocationTxt} }"
+                        displayedValue="{Quantity}" />
+                </microchart:segments>
+
+            </microchart:InteractiveDonutChart>
+        
+        </items>
+    </FlexBox>
 </core:FragmentDefinition>

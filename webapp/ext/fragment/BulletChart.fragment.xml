@@ -1,110 +1,110 @@
 <core:FragmentDefinition
-	id="idBulletChartFragment"
-	xmlns:core="sap.ui.core"
-	xmlns="sap.m"
-	xmlns:viz="sap.viz.ui5.controls"
-	xmlns:layout="sap.ui.layout"
-	xmlns:mvc="sap.ui.core.mvc"
-	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
-	xmlns:viz.data="sap.viz.ui5.data"
-	xmlns:macros="sap.fe.macros">
-	<VBox id="uiArea" core:require="{ handler: 'com/ep/zistocks/ext/fragment/BulletChart'}">
-		<layout:FixFlex id='chartFixFlex' minFlexSize="250">
-			<layout:flexContent>
-				<viz:VizFrame
-					id="idMonthVizFrame"
-					renderComplete="handler.onVizFrameRenderComplete"
-					height="300px"
-					uiConfig="{
-						applicationSet: 'fiori'
-					}"
-					width="100%"
-					class="sapUiSmallMargin"
-					vizType="bullet"
-					vizProperties="{
-						title: { visible: false },
-						plotArea: {
-							dataLabel: {
-								visible: true,
-								showTotal: true
-							}
-						},
-						categoryAxis: {
-							title: { visible: false },
-							label: { visible: true }
-						},
-						valueAxis: {
-							title: { visible: false },
-							label: { visible: true }
-						}
-					}">
-					<viz:dataset>
-						<viz.data:FlattenedDataset
-							id="idFlattenedDataset"
-							data="{ path: 'v2>/zz_dd_stock_zite_plants'
-									
-								}">
-							<viz.data:dimensions>
-								<viz.data:DimensionDefinition
-									id="idPlantDefinition"
-									name="Plant"
-									value="{v2>plantTxt}"
-								/>
-							</viz.data:dimensions>
-							<viz.data:measures>
-								<viz.data:MeasureDefinition
-									id="idCommitedStockDefinition"
-									name="Unavailable/Commited Stock"
-									value="{v2>UnavailCommitStock}"
-								/>
-							</viz.data:measures>
-							<viz.data:measures>
-								<viz.data:MeasureDefinition
-									id="idAvailableStkDefinition"
-									name="Available Stock"
-									value="{v2>stockQuantity}"
-								/>
-							</viz.data:measures>
-							<viz.data:measures>
-								<viz.data:MeasureDefinition
-									id="idSafetyDefinition"
-									name="Safety Stock"
-									value="{v2>safetyStock}"
-								/>
-							</viz.data:measures>
-						</viz.data:FlattenedDataset>
-					</viz:dataset>
-					<viz:feeds>
-						<viz.feeds:FeedItem
-							id="idPlantFeed"
-							uid="categoryAxis"
-							type="Dimension"
-							values="Plant"
-						/>
-						<viz.feeds:FeedItem
-							id="idCommitedStockFeed"
-							uid="additionalValues"
-							type="Measure"
-							values="Unavailable/Commited Stock"
-						/>
-						<viz.feeds:FeedItem
-							id="idAvailableStkFeed"
-							uid="primaryValues"
-							type="Measure"
-							values="Available Stock"
-						/>
-						<viz.feeds:FeedItem
-							id="idSafetyFeed"
-							uid="targetValues"
-							type="Measure"
-							values="Safety Stock"
-						/>
-					</viz:feeds>
-					<viz:dependents>
-						<viz:Popover id="idMonthPopover" />
-					</viz:dependents>
-				</viz:VizFrame>
-			</layout:flexContent>
-		</layout:FixFlex>
-	</VBox>
+    id="idBulletChartFragment"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:viz="sap.viz.ui5.controls"
+    xmlns:layout="sap.ui.layout"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+    xmlns:viz.data="sap.viz.ui5.data"
+    xmlns:macros="sap.fe.macros">
+    <VBox id="uiArea" core:require="{ handler: 'com/ep/zistocks/ext/fragment/BulletChart'}">
+        <layout:FixFlex id='chartFixFlex' minFlexSize="250">
+            <layout:flexContent>
+                <viz:VizFrame
+                    id="idMonthVizFrame"
+                    renderComplete="handler.onVizFrameRenderComplete"
+                    height="300px"
+                    uiConfig="{
+                        applicationSet: 'fiori'
+                    }"
+                    width="100%"
+                    class="sapUiSmallMargin"
+                    vizType="bullet"
+                    vizProperties="{
+                        title: { visible: false },
+                        plotArea: {
+                            dataLabel: {
+                                visible: true,
+                                showTotal: true
+                            }
+                        },
+                        categoryAxis: {
+                            title: { visible: false },
+                            label: { visible: true }
+                        },
+                        valueAxis: {
+                            title: { visible: false },
+                            label: { visible: true }
+                        }
+                    }">
+                    <viz:dataset>
+                        <viz.data:FlattenedDataset
+                            id="idFlattenedDataset"
+                            data="{ path: 'v2>/zz_dd_stock_zite_plants'
+                                    
+                                }">
+                            <viz.data:dimensions>
+                                <viz.data:DimensionDefinition
+                                    id="idPlantDefinition"
+                                    name="Plant"
+                                    value="{v2>plantTxt}"
+                                />
+                            </viz.data:dimensions>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition
+                                    id="idCommitedStockDefinition"
+                                    name="Unavailable/Commited Stock"
+                                    value="{v2>UnavailCommitStock}"
+                                />
+                            </viz.data:measures>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition
+                                    id="idAvailableStkDefinition"
+                                    name="Available Stock"
+                                    value="{v2>stockQuantity}"
+                                />
+                            </viz.data:measures>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition
+                                    id="idSafetyDefinition"
+                                    name="Safety Stock"
+                                    value="{v2>safetyStock}"
+                                />
+                            </viz.data:measures>
+                        </viz.data:FlattenedDataset>
+                    </viz:dataset>
+                    <viz:feeds>
+                        <viz.feeds:FeedItem
+                            id="idPlantFeed"
+                            uid="categoryAxis"
+                            type="Dimension"
+                            values="Plant"
+                        />
+                        <viz.feeds:FeedItem
+                            id="idCommitedStockFeed"
+                            uid="additionalValues"
+                            type="Measure"
+                            values="Unavailable/Commited Stock"
+                        />
+                        <viz.feeds:FeedItem
+                            id="idAvailableStkFeed"
+                            uid="primaryValues"
+                            type="Measure"
+                            values="Available Stock"
+                        />
+                        <viz.feeds:FeedItem
+                            id="idSafetyFeed"
+                            uid="targetValues"
+                            type="Measure"
+                            values="Safety Stock"
+                        />
+                    </viz:feeds>
+                    <viz:dependents>
+                        <viz:Popover id="idMonthPopover" />
+                    </viz:dependents>
+                </viz:VizFrame>
+            </layout:flexContent>
+        </layout:FixFlex>
+    </VBox>
 </core:FragmentDefinition>
