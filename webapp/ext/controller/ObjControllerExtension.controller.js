@@ -51,6 +51,8 @@ sap.ui.define(["sap/ui/core/mvc/ControllerExtension"], function (ControllerExten
                     oDonut.getBinding("segments").sort(oSorter);
                 }
 
+                debugger;
+
             }
         }
     });
