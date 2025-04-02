@@ -41,9 +41,7 @@
                     <viz:dataset>
                         <viz.data:FlattenedDataset
                             id="idFlattenedDataset"
-                            data="{ path: 'v2>/zz_dd_stock_zite_plants'
-                                    
-                                }">
+                            data="{ path: 'v2>/zz_dd_stock_zite_plants' }">
                             <viz.data:dimensions>
                                 <viz.data:DimensionDefinition
                                     id="idPlantDefinition"
@@ -55,7 +53,7 @@
                                 <viz.data:MeasureDefinition
                                     id="idCommitedStockDefinition"
                                     name="Unavailable/Commited Stock"
-                                    value="{v2>UnavailCommitStock}"
+                                    value="{= -${v2>UnavailCommitStock} }"
                                 />
                             </viz.data:measures>
                             <viz.data:measures>
