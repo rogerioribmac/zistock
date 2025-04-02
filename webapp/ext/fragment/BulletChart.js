@@ -35,6 +35,10 @@ sap.ui.define(["sap/m/MessageToast", "sap/ui/core/HTML"], function (MessageToast
                     groupingSeparator: "."
                 }).format);
             }
+        },
+
+        getSafetyStock: function (eventsSafetyStock, safetyStock) {
+            return eventsSafetyStock ? eventsSafetyStock : safetyStock;
         }
     };
 });

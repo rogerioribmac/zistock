@@ -8,30 +8,20 @@
         xmlns:macros="sap.fe.macros">
     <FlexBox width="100%" height="100%" direction="Column" alignItems="Start" id="idDonutFlexBox">
         <items>
-    
-            <!-- <Text text="* There may be more segments than those shown in the chart"
-            id="idWarningDonut"
-            visible="true"
-            textAlign="Left"
-            class="sapUiSmallMargin"
-            width="100%" /> -->
-
             <microchart:InteractiveDonutChart
                 id="idDonutChart"
                 selectionChanged="handler.onSelectionChanged"
                 core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
                 selectionEnabled="true"
                 displayedSegments="30"
-                segments="{_stor_loc}" >
+                segments="{ path: '_stor_loc', sorter: [{path: 'Quantity' , descending: true }] }" >
                 <microchart:segments>
                     <microchart:InteractiveDonutChartSegment
                         value="{Quantity}"
                         label="{= ${StorageLocation} + ' - ' + ${StorageLocationTxt} }"
                         displayedValue="{Quantity}" />
                 </microchart:segments>
-
             </microchart:InteractiveDonutChart>
-        
         </items>
     </FlexBox>
 </core:FragmentDefinition>

@@ -46,13 +46,6 @@ sap.ui.define(["sap/ui/core/mvc/ControllerExtension"], function (ControllerExten
                     descending: true 
                 });
 
-                let oDonut = this.getView().byId("com.ep.zistocks::zz_pv_stock_zite_plantsObjectPage--fe::CustomSubSection::DonutChart--idDonutChart");
-                if (oDonut){
-                    oDonut.getBinding("segments").sort(oSorter);
-                }
-
-                debugger;
-
             }
         }
     });
