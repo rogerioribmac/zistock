@@ -6,15 +6,16 @@
         xmlns:viz.data="sap.viz.ui5.data"
         xmlns:microchart="sap.suite.ui.microchart"
         xmlns:macros="sap.fe.macros">
-    <FlexBox width="100%" height="100%" direction="Column" alignItems="Start" id="idDonutFlexBox">
+    <FlexBox width="100%" height="22rem" direction="Column" alignItems="Start" id="idDonutFlexBox">
         <items>
             <microchart:InteractiveDonutChart
                 id="idDonutChart"
                 selectionChanged="handler.onSelectionChanged"
                 core:require="{handler: 'com/ep/zistocks/ext/fragment/DonutChart'}"
                 selectionEnabled="true"
-                displayedSegments="30"
-                segments="{ path: '_stor_loc', sorter: [{path: 'Quantity' , descending: true }] }" >
+                displayedSegments="15"
+                segments="{ path: '_stor_loc', sorter: [{path: 'Quantity' , descending: true }] }"
+                class="sapUiSmallMarginBottom" >
                 <microchart:segments>
                     <microchart:InteractiveDonutChartSegment
                         value="{Quantity}"

@@ -226,8 +226,11 @@
     "extends": {
       "extensions": {
         "sap.ui.controllerExtensions": {
-          "sap.fe.templates.ObjectPage.ObjectPageController": {
-            "controllerName": "com.ep.zistocks.ext.controller.ObjControllerExtension"
+          "sap.fe.templates.ObjectPage.ObjectPageController#com.ep.zistocks::zz_pv_stock_zite_plantsObjectPage": {
+            "controllerName": "com.ep.zistocks.ext.controller.AssetsPageExtension"
+          },
+          "sap.fe.templates.ObjectPage.ObjectPageController#com.ep.zistocks::zz_pv_stock_zite_materialsObjectPage": {
+            "controllerName": "com.ep.zistocks.ext.controller.PlantsPageExtension"
           }
         }
       }
