@@ -73,7 +73,7 @@
                             <viz.data:measures>
                                 <viz.data:MeasureDefinition
                                     id="idPurcNotDelDefinition"
-                                    name="Ordered and Not Delivered"
+                                    name="Ordered and Not Yet Delivered"
                                     value="{v2>purchaseNotDelivered}"
                                 />
                             </viz.data:measures>
@@ -108,7 +108,7 @@
                             id="idPurcNotDelFeed"
                             uid="forecastValues"
                             type="Measure"
-                            values="Ordered and Not Delivered"
+                            values="Ordered and Not Yet Delivered"
                         />
                     </viz:feeds>
                     <viz:dependents>
