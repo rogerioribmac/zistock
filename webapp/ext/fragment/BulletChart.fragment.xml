@@ -70,6 +70,13 @@
                                     value="{v2>safetyStock}"
                                 />
                             </viz.data:measures>
+                            <viz.data:measures>
+                                <viz.data:MeasureDefinition
+                                    id="idPurcNotDelDefinition"
+                                    name="Ordered and Not Delivered"
+                                    value="{v2>safetyStock}"
+                                />
+                            </viz.data:measures>
                         </viz.data:FlattenedDataset>
                     </viz:dataset>
                     <viz:feeds>
@@ -96,6 +103,12 @@
                             uid="targetValues"
                             type="Measure"
                             values="Safety Stock"
+                        />
+                        <viz.feeds:FeedItem
+                            id="idPurcNotDelFeed"
+                            uid="forecastValues"
+                            type="Measure"
+                            values="Ordered and Not Delivered"
                         />
                     </viz:feeds>
                     <viz:dependents>
