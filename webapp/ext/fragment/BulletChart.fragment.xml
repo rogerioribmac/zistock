@@ -74,7 +74,7 @@
                                 <viz.data:MeasureDefinition
                                     id="idPurcNotDelDefinition"
                                     name="Ordered and Not Delivered"
-                                    value="{v2>safetyStock}"
+                                    value="{v2>purchaseNotDelivered}"
                                 />
                             </viz.data:measures>
                         </viz.data:FlattenedDataset>
