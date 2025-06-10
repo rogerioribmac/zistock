@@ -34,6 +34,24 @@ sap.ui.define(["sap/m/MessageToast", "sap/ui/core/HTML"], function (MessageToast
                     decimalSeparator: ",",
                     groupingSeparator: "."
                 }).format);
+
+                // It only shows the forecast value "Ordered not delivered" for ITEC
+                let oHeaderContent = this.byId("com.ep.zistocks::zz_pv_stock_zite_materialsObjectPage--fe::HeaderContentContainer");
+                if (oHeaderContent){
+                    let sDG = oHeaderContent.getBindingContext().getProperty("DG");
+                    if (sDG !== "ITEC"){
+                        let oPurchNotDeliv = this.byId("com.ep.zistocks::zz_pv_stock_zite_materialsObjectPage--fe::CustomSubSection::BulletChart--idPurcNotDelFeed");
+                        if (oPurchNotDeliv){
+                            oHeaderContent.PurchNotDeliv = oPurchNotDeliv;
+                            oVizFrame.removeFeed(oPurchNotDeliv);
+                        }
+                    } else {
+                        if (!oVizFrame.getFeeds().includes(oHeaderContent.PurchNotDeliv && oHeaderContent.PurchNotDeliv)){
+                            oVizFrame.addFeed(oHeaderContent.PurchNotDeliv);
+                        }
+                    }
+                }
+
             }
         },
 
