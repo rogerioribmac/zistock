@@ -21,7 +21,8 @@ sap.ui.define(["sap/m/MessageToast", "sap/ui/core/HTML"], function (MessageToast
                             sContent += `<div style='margin: 5px 30px 0 30px'>${aDataValues[3].name}<span style='float: right'>${aDataValues[3].value}</span></div>`;
                             sContent += `<div style='margin: 5px 30px 0 30px'>${aDataValues[2].name}<span style='float: right'>${aDataValues[2].value}</span></div>`;
                             sContent += `<div style='margin: 5px 30px 0 30px'>Unavailable<span style='float: right'>${oContext.getProperty("unavailableStock")}</span></div>`;
-                            sContent += `<div style='margin: 5px 30px 15px 30px'>Commited<span style='float: right'>${oContext.getProperty("commitedStock")}</span></div>`;
+                            sContent += `<div style='margin: 5px 30px 0 30px'>Commited<span style='float: right'>${oContext.getProperty("commitedStock")}</span></div>`;
+                            sContent += `<div style='margin: 5px 30px 15px 30px'>Purchased not Dlv.<span style='float: right'>${oContext.getProperty("purchaseNotDelivered")}</span></div>`;
                         }
                         
                         return new HTML({ content: sContent });

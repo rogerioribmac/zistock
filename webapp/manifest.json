@@ -196,8 +196,7 @@
               "controlConfiguration": {
                 "_plant/@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "enableFullScreen": true,
-                    "type": "ResponsiveTable"
+                    "type": "GridTable"
                   }
                 }
               }
