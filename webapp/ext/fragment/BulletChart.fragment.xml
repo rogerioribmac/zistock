@@ -52,7 +52,7 @@
                             <viz.data:measures>
                                 <viz.data:MeasureDefinition
                                     id="idCommitedStockDefinition"
-                                    name="Unavailable/Commited Stock"
+                                    name="Unavailable/Committed Stock"
                                     value="{= -${v2>UnavailCommitStock} }"
                                 />
                             </viz.data:measures>
@@ -90,7 +90,7 @@
                             id="idCommitedStockFeed"
                             uid="additionalValues"
                             type="Measure"
-                            values="Unavailable/Commited Stock"
+                            values="Unavailable/Committed Stock"
                         />
                         <viz.feeds:FeedItem
                             id="idAvailableStkFeed"
